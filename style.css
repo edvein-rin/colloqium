@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+html, body {
+    padding: 0;
+    height: 100%;
+    
+    width: 100%;
+    margin: 0;
+    
+    border: none;
+
+    --lighter: #ffe6e6;
+    --light: #ffabe1;
+    --dark: #a685e2;
+    --darker: #6155a6;
+
+    /*
+    --lighter: #f67280;
+    --light: #c06c84;
+    --dark: #6c5b7b;
+    --darker: #355c7d;
+    */
+
+    color: var(--darker);
+    font-family: 'Raleway', sans-serif;
+
+    cursor: default;
+    user-select: none;
+}
+
+input {
+    color: var(--darker);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#navigation-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 10px;
+    margin-bottom: 32px;
+    
+    width: 90%;
+    max-width: 400px;
+    height: 32px;
+}
+
+#navigation-bar > * {
+    margin: 10px;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 80%;
+    height: 100%;
+    
+    border: 1px solid;
+}
+
+#search-field {
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    
+    height: 100%;
+    width: 85%;
+    
+    border: none;
+}
+
+#erase-icon {
+    width: 24px;
+    padding-right: 5px;
+}
+
+#erase-icon:hover, #filter-icon:hover {
+    color: var(--light);
+}
+
+#erase-icon:active, #filter-icon:active {
+    color: var(--lighter);
+}
+
+#filter-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 32px;
+    width: 32px;
+    
+    border: 1px solid;
+}
+
+#filter-icon {
+    font-size: 16px;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 90%;
+    max-width: 700px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 16px;
+}
+
+.result:hover > div.result-header {
+    font-weight: bold;
+}
+
+.potential {
+    color: var(--dark);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    
+    margin-bottom: 8px;
+    
+    width: 100%;
+}
+
+.result-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+    
+    height: 32px;
+    width: 32px;
+
+    border: 1px solid;
+}
+
+.result-question {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+
+    padding: 0 8px;
+
+    height: 32px;
+
+    border: 1px solid;
+}
+
+.result-source {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 8px;
+    margin-left: 8px;
+
+    width: 150px;
+
+    border: 1px solid;
+}
+
+.result-answer {
+    display: none;
+    
+    padding: 8px;
+
+    border: 1px solid;
+}

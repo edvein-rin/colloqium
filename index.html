@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Колоквіум</title>
+        <meta charset="utf-8">
+        <script src="https://kit.fontawesome.com/97688857be.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://livejs.com/live.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript">
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+              },
+              startup: {
+                ready: () => {
+                  MathJax.startup.defaultReady();
+                  loadQuestions();
+                  updateResults();
+                }
+              }
+            };
+        </script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="navigation-bar">
+            <div id="search">
+                <input id="search-field" oninput="updateResults()"></input>
+                <i id="erase-icon" class="fas fa-backspace" onclick="clearSearch()"></i>
+            </div>
+            <div id="filter-btn"><i id="filter-icon" class="fas fa-filter"></i></div>
+        </div>
+        <div id="results"></div>
+        <div id='question-list' hidden="">
+            <div>
+                <div>Розбиття та діаметр розбиття</div>
+                <div>Розбиття - це скінченна кількість точок.<br>Діаметр - це довжина самого довгого відрізку розбиття?</div>
+                <div>Зоріч с.130</div>
+            </div>
+            <div class="potential">
+                <div>Інтеграл Рімана на $n$-вимірному проміжку</div>
+                <div></div>
+                <div>9.1 Зоріч с.131</div>
+            </div>
+            <div class="theorem">
+                <div>Умова інтегровності</div>
+                <div>Функція повинна бути обмеженою на проміжку інтегрування.</div>
+                <div>Зоріч с.131</div>
+            </div>
+            <div class="theorem">
+                <div>Критерій Лебега інтегровності функції по Ріману</div>
+                <div>
+                    Функція інтегровна тоді і тільки тоді, коли вона обмежена на проміжку інтегрування і неперервна майже всюди на цьому проміжку.<br><br>
+                    <b>Необхідність:</b><br>
+                    Обмеженість випливає з умови інтегровності, а неперервність з того, що якщо множина точок розриву не є множиною міри нуль, то функція не інтегровна.<br><br>
+                    <b>Достатність:</b><br>
+                    <b>TODO</b>
+                </div>
+                <div>Зоріч с.132</div>
+            </div>
+            <div class="potential">
+                <div>Множина міри нуль</div>
+                <div></div>
+                <div>Зоріч с.132</div>
+            </div>
+            <div class="potential theorem">
+                <div>Властивості множини міри нуль</div>
+                <div></div>
+                <div>9.2 Зоріч с.132</div>
+            </div>
+            <div>
+                <div>Інтеграл на множині</div>
+                <div></div>
+                <div>9.3 Зоріч с.141</div>
+            </div>
+            <div>
+                <div>Міра Жордана</div>
+                <div>Одиничний інтеграл по множині</div>
+                <div>Зоріч с.144</div>
+            </div>
+            <div>
+                <div>\(0\) в розумінні Жордана і Лебега</div>
+                <div></div>
+                <div>Зоріч с.145</div>
+            </div>
+            <div class="theorem">
+                <div>Властивості кратного інтегралу</div>
+                <div>
+                    <b>Лінійнійсть</b><br>
+                    <b>Адитивність</b><br>
+                    <b>Монотонність</b><br>
+                    <b>Оцінка інтегралу</b>
+                </div>
+                <div>9.4 Зоріч с.147</div>
+            </div>
+            <div class="theorem">
+                <div>Теорема Фубіні про зведення кратного інтегралу до повторного</div>
+                <div>
+                    <br>
+
+                </div>
+                <div></div>
+            </div>
+            <div class="potential formula">
+                <div>Циліндрична система координат</div>
+                <div>
+                    $x = \rho \cdot cos\varphi$<br>
+                    $y = \rho \cdot sin\varphi$<br>
+                    $z = z$
+                </div>
+            </div>
+            <div class="formula">
+                <div>Сферична система координат</div>
+                <div>
+                    $x = r \cdot sin\theta \cdot cos\varphi$<br>
+                    $y = r \cdot sin\theta \cdot sin\varphi$<br>
+                    $z = r \cdot cos \theta$
+                </div>
+            </div>
+            <div>
+                <div>?Відмінність множини міри?</div>
+                <div></div>
+            </div>
+            <div>
+                <div>Плотність заряду відносно $\mu$</div>
+                <div></div>
+            </div>
+            <div>
+                <div>Відмінність заряду від $\mu$</div>
+                <div></div>
+            </div>
+            <div class="theorem">
+                <div>Перша теорема Радона-Никодима</div>
+                <div></div>
+            </div>
+            <div class="potential theorem">
+                <div>Друга теорема Радона-Никодима</div>
+                <div></div>
+            </div>
+            <div class="potential">
+                <div>Інтеграл Лебега від композиції функцій</div>
+                <div></div>
+            </div>
+            <div class="formula">
+                <div>Формула Гауса-Остроградського</div>
+                <div></div>
+            </div>
+            <div class="formula">
+                <div>Формула Стокса</div>
+                <div></div>
+            </div>
+            <!-- Ниже неотсортированные вопросы -->
+            <div>
+                <div>Інтеграл Лебега</div>
+                <div>
+                    Від простої функції:<br>
+                    Сума функцій на к на міру Акате<br>
+                    фк вводиться як послідовніть простих функцій<br><br>
+
+                    Від інтегровної функції:<br>
+                </div>
+            </div>
+            <div class="formula">
+                <div>Поток векторного поля</div>
+                <div>Поверхневий інтеграл другого роду</div>
+            </div>
+            <div class="formula">
+                <div>Об'єм тіла</div>
+                <div></div>
+            </div>
+        </div>
+    </body>
+</html>
