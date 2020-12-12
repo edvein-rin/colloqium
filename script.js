@@ -74,7 +74,7 @@ function updateResults(){
         if(filter == 'all' || (type == 'Т' && filter == 'theorems') || (type == 'Ф' && filter == 'formulas')){
             if(question.toLowerCase().includes(searchString.toLowerCase())){
                 const result =
-                    `<div class="result${potential ? ' potential': ''}" onclick="invertAnswerDisplay(this)" onmouseenter="showAnswer(this)" onmouseleave="hideAnswer(this)">
+                    `<div class="result${potential ? ' potential': ''}" onclick="invertAnswerDisplay(this)">
                         <div class="result-header">
                             <div class="result-type"${type == '' ? ' style=\"display: none;\"' : ''}><span>${type}</span></div>
                             <div class="result-question"><div>${question}</div></div>
@@ -83,7 +83,7 @@ function updateResults(){
                         <div class="result-answer"${searchString == '' ? '' : ' style=\"height: auto; opacity: 1; padding: 8px;\"'}>
                             ${answer}
                         </div>
-                    </div>`
+                    </div>`// onmouseenter="showAnswer(this)" onmouseleave="hideAnswer(this)"
 
                 results.insertAdjacentHTML('beforeend', result);
             }
