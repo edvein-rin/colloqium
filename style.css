@@ -101,7 +101,7 @@ body {
 }
 
 #erase-icon:active, #filter-icon:active {
-    color: var(--lighter);
+    color: var(--dark);
 }
 
 #filter-btn {
@@ -137,8 +137,12 @@ body {
     margin-bottom: 16px;
 }
 
-.result:hover > div.result-header {
-    font-weight: bold;
+.result:hover > div.result-header * {
+    border-color: var(--light);
+}
+
+.result:active > div.result-header * {
+    border-color: var(--dark);
 }
 
 .potential {
@@ -153,6 +157,11 @@ body {
 
     width: 100%;
     min-height: 32px;
+
+}
+
+.result-header * {
+    font-weight: bold;
 }
 
 .result-type {
@@ -204,11 +213,16 @@ body {
 @media ( min-width: 768px ) { .result-source { width: 150px; } } /* Medium and Larger*/
 
 .result-answer {
-    display: none;
-    
-    padding: 8px;
+    /*display: none;*/
+    height: 0;
+    opacity: 0;
+    padding: 0;
+    overflow: hidden;
 
     border: 2px solid;
 
     background: white;
+
+    transition-property: opacity, height;
+    transition-duration: .2s;
 }

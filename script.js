@@ -32,7 +32,25 @@ function loadQuestions(){
 
 function invertAnswerDisplay(question){
     let answer = question.children[question.children.length - 1];
-    answer.style.display = answer.style.display == '' ? 'block' : '';
+    if(answer.style.opacity == 0){
+        showAnswer(question)
+    }else{
+        hideAnswer(question)
+    }
+}
+
+function showAnswer(question){
+    let answer = question.children[question.children.length - 1];
+    answer.style.height = answer.scrollHeight.toString() + 'px';
+    answer.style.opacity = 1;
+    answer.style.padding = '8px';
+}
+
+function hideAnswer(question){
+    let answer = question.children[question.children.length - 1];
+    answer.style.height = 0;
+    answer.style.opacity = 0;
+    setTimeout( () => {answer.style.padding = 0;}, 200);
 }
 
 function updateResults(){
@@ -56,13 +74,13 @@ function updateResults(){
         if(filter == 'all' || (type == 'Т' && filter == 'theorems') || (type == 'Ф' && filter == 'formulas')){
             if(question.toLowerCase().includes(searchString.toLowerCase())){
                 const result =
-                    `<div class="result${potential ? ' potential': ''}" onclick="invertAnswerDisplay(this)">
+                    `<div class="result${potential ? ' potential': ''}" onclick="invertAnswerDisplay(this)" onmouseenter="showAnswer(this)" onmouseleave="hideAnswer(this)">
                         <div class="result-header">
                             <div class="result-type"${type == '' ? ' style=\"display: none;\"' : ''}><span>${type}</span></div>
                             <div class="result-question"><div>${question}</div></div>
                             ${source != '' ? '<div class=\"result-source\">' + source + '</div>' : ''}
                         </div>
-                        <div class="result-answer"${searchString == '' ? '' : ' style=\"display: block;\"'}>
+                        <div class="result-answer"${searchString == '' ? '' : ' style=\"height: auto; opacity: 1; padding: 8px;\"'}>
                             ${answer}
                         </div>
                     </div>`
