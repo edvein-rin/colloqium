@@ -1,3 +1,9 @@
+/* < Extra small */
+@media ( min-width: 576px ) {} /* Small */
+@media ( min-width: 768px ) {} /* Medium */
+@media ( min-width: 992px ) {} /* Large */
+@media ( min-width: 1200px ) {} /* Extra large */
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 html, body {
@@ -44,6 +50,7 @@ body {
     align-items: center;
     
     padding: 10px;
+    margin-top: 32px;
     margin-bottom: 32px;
     
     width: 90%;
@@ -158,20 +165,28 @@ body {
     padding: 8px;
 
     border: 1px solid;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .result-source {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 
     padding: 8px;
     margin-left: 8px;
 
-    width: 150px;
+    width: 50px;
 
     border: 1px solid;
 }
+
+/* < Extra small */
+@media ( min-width: 576px ) { .result-source { width: 100px; } } /* Small */
+@media ( min-width: 768px ) { .result-source { width: 150px; } } /* Medium and Larger*/
 
 .result-answer {
     display: none;
