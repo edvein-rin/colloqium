@@ -20,15 +20,20 @@ html, body {
     --dark: #a685e2;
     --darker: #6155a6;
 
-    /*
     --lighter: #f67280;
     --light: #c06c84;
     --dark: #6c5b7b;
     --darker: #355c7d;
-    */
+
+    --lighter: #fff9f1;
+    --light: #eadd46;
+    --dark: #bacbd2;
+    --darker: #596a71;
+
 
     color: var(--darker);
     font-family: 'Raleway', sans-serif;
+    background: var(--lighter);
 
     cursor: default;
     user-select: none;
@@ -70,7 +75,9 @@ body {
     width: 80%;
     height: 100%;
     
-    border: 1px solid;
+    border: 2px solid;
+
+    background: white;
 }
 
 #search-field {
@@ -105,7 +112,9 @@ body {
     height: 32px;
     width: 32px;
     
-    border: 1px solid;
+    border: 2px solid;
+
+    background: white;
 }
 
 #filter-icon {
@@ -154,7 +163,9 @@ body {
 
     min-width: 32px;
 
-    border: 1px solid;
+    border: 2px solid;
+
+    background: white;
 }
 
 .result-question {
@@ -164,10 +175,12 @@ body {
 
     padding: 8px;
 
-    border: 1px solid;
+    border: 2px solid;
 
     word-wrap: break-word;
     overflow-wrap: break-word;
+
+    background: white;
 }
 
 .result-source {
@@ -181,7 +194,9 @@ body {
 
     width: 50px;
 
-    border: 1px solid;
+    border: 2px solid;
+
+    background: white;
 }
 
 /* < Extra small */
@@ -193,5 +208,7 @@ body {
     
     padding: 8px;
 
-    border: 1px solid;
+    border: 2px solid;
+
+    background: white;
 }
