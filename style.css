@@ -15,6 +15,7 @@ html, body {
     
     border: none;
 
+    /*
     --lighter: #ffe6e6;
     --light: #ffabe1;
     --dark: #a685e2;
@@ -24,11 +25,12 @@ html, body {
     --light: #c06c84;
     --dark: #6c5b7b;
     --darker: #355c7d;
+    */
 
     --lighter: #fff9f1;
     --light: #eadd46;
-    --dark: #bacbd2;
-    --darker: #596a71;
+    --dark: #596a71;
+    --darker: #0a2b42;
 
 
     color: var(--darker);
@@ -137,11 +139,11 @@ body {
     margin-bottom: 16px;
 }
 
-.result:hover > div.result-header * {
+.result:hover * {
     border-color: var(--light);
 }
 
-.result:active > div.result-header * {
+.result:active * {
     border-color: var(--dark);
 }
 
