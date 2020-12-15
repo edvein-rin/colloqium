@@ -19,7 +19,9 @@
                   MathJax.startup.defaultReady();
                   loadQuestions();
                   updateResults();
-                }
+                },
+                loader: {load: ['[tex]/amssymb']},
+                tex: {packages: {'[+]': ['amssymb']}}
               }
             };
         </script>
@@ -242,38 +244,94 @@
             <div class="potential formula">
                 <div>Циліндрична система координат</div>
                 <div>
-                    $x = \rho \cdot cos\varphi$<br>
-                    $y = \rho \cdot sin\varphi$<br>
-                    $z = z$
+                    $$/begin{cases}
+                    x = \rho \cdot cos\varphi \\
+                    y = \rho \cdot sin\varphi \\
+                    z = z \\
+                    \Iota = \rho
+                    /end{cases}$$
                 </div>
                 <div>Чертов с.4</div>
             </div>
             <div class="formula">
                 <div>Сферична система координат</div>
                 <div>
-                    $x = r \cdot sin\theta \cdot cos\varphi$<br>
-                    $y = r \cdot sin\theta \cdot sin\varphi$<br>
-                    $z = r \cdot cos \theta$
+                    $$/begin{cases}
+                    x = r \cdot sin\theta \cdot cos\varphi \\
+                    y = r \cdot sin\theta \cdot sin\varphi \\
+                    z = r \cdot cos \theta \\
+                    \Iota = \rho^2 \sin\theta
+                    /end{cases}$$
                 </div>
                 <div>Чертов с.4</div>
             </div>
             <div class="potential">
-                <div>WIP Міра та заряд</div>
-                <div></div>
-                <div>10.1 Чертов с.6</div>
+                <div>Кільце</div>
+                <div>
+                    ... - це непорожня система множин $\mathfrak{A}$, що є замкнутою відносно операцій різниці та об'єднання множин:<br>
+                    a) $A \in \mathfrak{A} \land B \in \mathfrak{A} \implies (A - B) \in \mathfrak{A}$<br>
+                    б) $A \in \mathfrak{A} \land B \in \mathfrak{A} \implies (A \cup B) \in \mathfrak{A}$
+                </div>
+                <div>Чертов с.5</div>
+            </div>
+            <div class="potential">
+                <div>$\sigma$-кільце</div>
+                <div>
+                    ... - це кільце, замкнуте відносно зчисленного об'єднання своїх елементів, тобто це непорожня система множин $\mathfrak{A}$, що є замкнутою відносно двох таких операцій:<br>
+                    a) $A \in \mathfrak{A} \land B \in \mathfrak{A} \implies (A-B) \in \mathfrak{A}$<br>
+                    б) послідовність $A_1, A_2, ..., A_n, ... \in \mathfrak{A} \implies \bigcup_{n=1}^{\infty} A_n \in \mathfrak{A}$
+                </div>
+                <div>Чертов с.5</div>
+            </div>
+            <div class="potential">
+                <div>Одиниця системи множин</div>
+                <div>
+                    Множина $E \in \mathfrak{A}$ називається <b>одиницею системи множин</b> $\mathfrak{A}$, якщо $\forall A \in \mathfrak{A}\ \ A \subset E = A$.
+                </div>
+                <div>Чертов с.6</div>
+            </div>
+            <div class="potential">
+                <div>$\sigma$-алгебра</div>
+                <div>
+                    ... - це $sigma$-кільце з одиницею.<br><br>
+                    <b>Приклади:</b><br>
+                    1) Система множин, що складається лише з порожньої множини і множини $X$, називається мінімальною, або тривіальною $\sigma$-алгеброю над $X$<br>
+                    2) Система всіх підмножин деякої множини
+                </div>
+                <div>Чертов с.6</div>
             </div>
             <div class="potential">
                 <div>WIP Вимірний простір</div>
+                <div>
+                    
+                </div>
+                <div>10.1 Чертов с.6</div>
+            </div>
+            <div class="potential">
+                <div>WIP Вимірна множина</div>
+                <div>
+                    
+                </div>
+                <div>Чертов с.6</div>
+            </div>
+            <div>
+                <div>WIP Міра $\mu$ на вимірному просторі</div>
                 <div></div>
                 <div>10.1 Чертов с.6</div>
             </div>
             <div>
-                <div>WIP Щильність заряду відносно $\mu$</div>
-                <div></div>
+                <div>WIP Заряд $\omega$ на вимірному просторі</div>
+                <div>
+                    
+                </div>
+                <div>10.1 Чертов с.6</div>
             </div>
-            <div>
-                <div>WIP Відмінність заряду від $\mu$</div>
-                <div></div>
+            <div class="potential">
+                <div>WIP Проста (ступінчаста) функція</div>
+                <div>
+                    
+                </div>
+                <div>Чертов с.6</div>
             </div>
             <div>
                 <div>WIP Інтеграл Лебега</div>
@@ -288,21 +346,103 @@
                 </div>
                 <div>10.1 Чертов с.7</div>
             </div>
+            <div>
+                <div>WIP Щильність заряду $\omega$ відносно $\mu$</div>
+                <div>Чертов с.7</div>
+            </div>
             <div class="theorem">
                 <div>WIP Перша теорема Радона-Никодима</div>
                 <div></div>
                 <div>10.2.1 Чертов с.8</div>
+            </div>
+            <div class="potential">
+                <div>WIP $\mu$-породжуюча сім'я множин</div>
+                <div>
+                    
+                </div>
+                <div>Чертов с.9</div>
             </div>
             <div class="potential theorem">
                 <div>WIP Друга теорема Радона-Никодима</div>
                 <div></div>
                 <div>10.2.2 Чертов с.9</div>
             </div>
-            <div class="potential">
+            <div class="potential theorem">
                 <div>WIP Інтеграл Лебега від композиції функцій</div>
                 <div></div>
                 <div>10.3 Чертов с.11</div>
             </div>
+            <div class="potential">
+                <div>WIP Криволінійний інтеграл I роду</div>
+                <div>
+                    
+                </div>
+                <div>11.1 Чертов с.14</div>
+            </div>
+            <div class="potential theorem">
+                <div>WIP Властивості криволінійного інтегралу I роду</div>
+                <div>
+                    
+                </div>
+                <div>Чертов с.16</div>
+            </div>
+            <div class="potential">
+                <div>WIP Криволінійний інтеграл II роду</div>
+                <div>
+                    
+                </div>
+                <div>11.2 Чертов с.18</div>
+            </div>
+            <div class="potential theorem">
+                <div>WIP Неперервне поле потенціалу (умова незалежності криволінійного інтегралу II роду від шляху інтегрування)</div>
+                <div>
+                    
+                </div>
+                <div>11.3 Чертов с.19</div>
+            </div>
+            <div class="potential theorem">
+                <div>WIP Неперервно-диференційовне поле потенціалу (умова незалежності криволінійного інтегралу II роду від шляху інтегрування)</div>
+                <div>
+                    
+                </div>
+                <div>11.4 Чертов с.20</div>
+            </div>
+            <div class="potential">
+                <div>WIP Оператор Гамільтона (Набла)</div>
+                <div>
+                    
+                </div>
+                <div>Чертов с.20</div>
+            </div>
+            <div class="potential">
+                <div>WIP Орієнтация плоскої області</div>
+                <div>
+                    
+                </div>
+                <div>11.5 Чертов с.21</div>
+            </div>
+            <div class="potential formula">
+                <div>WIP Перша формула Гріна</div>
+                <div>
+                    
+                </div>
+                <div>11.5 Чертов с.21</div>
+            </div>
+            <div class="potential">
+                <div>WIP Обчислення площі за допомогою криволінійного інтегралу</div>
+                <div>
+                    
+                </div>
+                <div>11.5 Чертов с.21</div>
+            </div>
+            <div class="potential formula">
+                <div>WIP Друга формула Гріна</div>
+                <div>
+                    
+                </div>
+                <div>11.6 Чертов с.22</div>
+            </div>
+            <!-- На 14.12 до 11.6 включительно -->
             <div class="formula">
                 <div>WIP Поток векторного поля</div>
                 <div>Поверхневий інтеграл другого роду</div>
