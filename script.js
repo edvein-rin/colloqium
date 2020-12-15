@@ -1,5 +1,8 @@
 var questions = [];
 var filter = 'all'; // [all|theorems|formulas]
+var timeUntilSearchResultsAreUpdated = 200; // ms
+var wasNewSearchRequest = false;
+var searchTimeout = null;
 
 function loadQuestions(){
     let questionList = document.getElementById('question-list');
@@ -51,6 +54,25 @@ function hideAnswer(question){
     answer.style.height = 0;
     answer.style.opacity = 0;
     setTimeout( () => {answer.style.padding = 0;}, 200);
+}
+
+function onSearchInputUpdate(){
+    wasNewSearchRequest = true;
+    if(!searchTimeout){
+        searchTimeout = setTimeout(searchTimeoutFunction, timeUntilSearchResultsAreUpdated);
+    }
+}
+
+function searchTimeoutFunction(){
+    if(wasNewSearchRequest){
+        console.log('Extended');
+        wasNewSearchRequest = false;
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(searchTimeoutFunction, timeUntilSearchResultsAreUpdated);
+    }else{
+        searchTimeout = null;
+        updateResults();
+    }
 }
 
 function updateResults(){
