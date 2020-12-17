@@ -36,6 +36,7 @@ html, body {
     color: var(--darker);
     font-family: 'Raleway', sans-serif;
     background: var(--lighter);
+    line-height: 1.5em;
 
     cursor: default;
     user-select: none;
