@@ -85,41 +85,45 @@ function updateResults(){
     }
 
     let searchString = document.getElementById('search-field').value;
+    let isAll = searchString == 'all' || searchString == 'все' || searchString == 'всі';
 
-    for(var i = 0, questionDict; questionDict = questions[i]; i++){
-        let question = questionDict['question'];
-        let answer = questionDict['answer'];
-        let source = questionDict['source'];
-        let potential = questionDict['potential'];
-        let type = questionDict['type'];
+    if(searchString != '' || isAll){
+        for(var i = 0, questionDict; questionDict = questions[i]; i++){
+            let question = questionDict['question'];
+            let answer = questionDict['answer'];
+            let source = questionDict['source'];
+            let potential = questionDict['potential'];
+            let type = questionDict['type'];
 
-        if(filter == 'all' || (type == 'Т' && filter == 'theorems') || (type == 'Ф' && filter == 'formulas')){
-            if(question.toLowerCase().includes(searchString.toLowerCase())){
-                const result =
-                    `<div class="result${potential ? ' potential': ''}" onclick="invertAnswerDisplay(this)">
-                        <div class="result-header">
-                            <div class="result-type"${type == '' ? ' style=\"display: none;\"' : ''}><span>${type}</span></div>
-                            <div class="result-question"><div>${question}</div></div>
-                            ${source != '' ? '<div class=\"result-source\">' + source + '</div>' : ''}
-                        </div>
-                        <div class="result-answer"${searchString == '' ? '' : ' style=\"height: auto; opacity: 1; padding: 8px;\"'}>
-                            ${answer}
-                        </div>
-                    </div>`// onmouseenter="showAnswer(this)" onmouseleave="hideAnswer(this)"
+            if(filter == 'all' || (type == 'Т' && filter == 'theorems') || (type == 'Ф' && filter == 'formulas')){
+                if(question.toLowerCase().includes(searchString.toLowerCase()) || isAll){
+                    const result =
+                        `<div class="result${potential ? ' potential': ''}" onclick="invertAnswerDisplay(this)">
+                            <div class="result-header">
+                                <div class="result-type"${type == '' ? ' style=\"display: none;\"' : ''}><span>${type}</span></div>
+                                <div class="result-question"><div>${question}</div></div>
+                                ${source != '' ? '<div class=\"result-source\">' + source + '</div>' : ''}
+                            </div>
+                            <div class="result-answer"${isAll ? '' : ' style=\"height: auto; opacity: 1; padding: 8px;\"'}>
+                                ${answer}
+                            </div>
+                        </div>`// onmouseenter="showAnswer(this)" onmouseleave="hideAnswer(this)"
 
-                results.insertAdjacentHTML('beforeend', result);
+                    results.insertAdjacentHTML('beforeend', result);
+                }
             }
+
         }
 
-    }
+        MathJax.texReset();
+        MathJax.typesetClear();
+        MathJax.typesetPromise()
+            .catch(function (err) {
+              output.innerHTML = '';
+              output.appendChild(document.createElement('pre')).appendChild(document.createTextNode(err.message));
+            })
 
-    MathJax.texReset();
-    MathJax.typesetClear();
-    MathJax.typesetPromise()
-        .catch(function (err) {
-          output.innerHTML = '';
-          output.appendChild(document.createElement('pre')).appendChild(document.createTextNode(err.message));
-        })
+    }
 
 }
 
