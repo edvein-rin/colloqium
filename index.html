@@ -116,7 +116,7 @@
             <div class="potential">
                 <div>Коливання функції на множині і в точці</div>
                 <div>
-                    Коливанням функції $f: E \to R$ на множині $E$ є $\omega(f;\ E) \equiv \sup_{x_1, x_2 \in E} |f(x_1)-f(x_2)|$, а коливанням функції в точці $x \in E$ - $\omega(f;\ x) \equiv \lim_{\delta \to 0} \omega(f;\ U_E^\delta (x))$, де $U_E^\delta (x)$ - $\delta$-окіл точки $x$ в множині $E$.<br>
+                    Коливанням функції $f: E \to R$ на множині $\ E\ $ є $\ \omega(f;\ E) \equiv \sup_{x_1, x_2 \in E} |f(x_1)-f(x_2)|\ $, а коливанням функції в точці $\ x \in E\ $ - це $\ \omega(f;\ x) \equiv \lim_{\delta \to 0} \omega(f;\ U_E^\delta (x))\ $, де $\ U_E^\delta (x)$ - $\delta$-окіл точки $x$ в множині $E$.<br>
                     <br>
                     <b>Приклади:</b><br>
                     $\omega(x;\ ]-1, 3[) = 4$<br>
@@ -314,9 +314,9 @@
                 <div>Сферична система координат</div>
                 <div>
                     $$\begin{cases}
-                    x = r \cdot sin\theta \cdot cos\varphi \\
-                    y = r \cdot sin\theta \cdot sin\varphi \\
-                    z = r \cdot cos \theta \\
+                    x = \rho \cdot sin\theta \cdot cos\varphi \\
+                    y = \rho \cdot sin\theta \cdot sin\varphi \\
+                    z = \rho \cdot cos \theta \\
                     I = \rho^2 \sin\theta
                     \end{cases}$$
                 </div>
@@ -443,6 +443,9 @@
                     $$\omega(A) = \int_A f\ d\mu$$
                     Тобто:
                     $$\omega(A) = \int_A \frac{d \omega}{d \mu}\ d\mu$$
+                    <br>
+                    <b>Доведення:</b><br>
+                    Доведення через означення інтегрованості функції, а також оцінку щильності.
                 </div>
                 <div>10.2.1 Чертов с.8</div>
             </div>
@@ -461,14 +464,47 @@
                 <div>Чертов с.9</div>
             </div>
             <div class="potential theorem">
-                <div>WIP Друга теорема Радона-Никодима</div>
-                <div></div>
+                <div>Друга теорема Радона-Никодима</div>
+                <div>
+                    Нехай $\omega: \mathfrak{A} \to R$ - заряд, для якого існує така стала $C > 0$, що $|\omega(A) < C \cdot \mu(A)$ для $\forall A \in \mathfrak{A}$, і існує така інтегрована функція $f$, що для будь-якого $B \in \beta$, має місце наступна нерівність: $\inf_B f \cdot \mu(B) \le \omega{B} \le \sup_B f \cdot \mu(B)$, то тоді $\forall A \in \mathfrak{A}$:
+                    $$\omega(A) = \int_A f\ d\mu$$
+                    <br>
+                    <b>Доведення:</b><br>
+                    Ідея - звести доведення до оцінки щільності найбільшої множини - $А$.
+                </div>
                 <div>10.2.2 Чертов с.9</div>
             </div>
             <div class="potential theorem">
-                <div>WIP Інтеграл Лебега від композиції функцій</div>
-                <div></div>
+                <div>Інтеграл Лебега від композиції функцій</div>
+                <div>
+                    Нехай є простір з мірою $(Y, \mathfrak{A}_Y, \mu)$, а $g: X \to Y$ - взаємно однозначне відображення $X$ на $Y$.<br>
+                    Якщо $A \in \mathfrak{A}_Y$ і функція $f$ є інтегрованою на $Y$, то $f \circ g$ - інтегрована на $X$ функція і
+                    $$\int_A f\ d\mu = \int_{g^{-1}(A)} (f \circ g)\ d\mu_g$$
+                    <br>
+                    <b>Доведення:</b><br>
+                    Рівність достатньо довести для $A=Y$.<br>
+                    Дійсно,
+                    $$\lambda_{g^{-1}(A)} (X) =
+                    \begin{cases}
+                    1,\text{ якщо } x \in g^{-1}(A) \Leftrightarrow g(x) \in A \\
+                    0,\text{ якщо } x \notin g^{-1}(A) \Leftrightarrow g(x) \notin A
+                    \end{cases}=$$
+                    $$ = \lambda_A(g(x)) = (\lambda_A \circ g)(x)$$
+                    Тому
+                    $$\int_{g^(-1)(A)} (f \circ g)\ d\mu_g \equiv \int_X (f \circ g) \lambda_{g^{-1}(A)(x)}\ d\mu_g =$$
+                    $$ = \int_X (f \circ g)(\lambda_A \circ g)(x)\ d\mu_g = \int_X ((f \bullet \lambda_A) \circ g)(x)\ d\mu_g$$
+                    $$\int_A f\ d\mu \equiv \int_Y (f \bullet \lambda_A)\ d\mu$$
+                </div>
                 <div>10.3 Чертов с.11</div>
+            </div>
+            <div class="potential">
+                <div>Міра (довжина) дуги кривої</div>
+                <div>
+                    Якщо крива $L$ параметризована через $t$, то довжина:
+                    $$\mu(l) = |l| = \int_l \sqrt{{x}'^2(t) + {y}'^2(t) + {z}'^2(t)}\ dt$$
+                    Функції під коренем маєть неперервні похідні першого порядку.
+                </div>
+                <div></div>
             </div>
             <div class="potential">
                 <div>Криволінійний інтеграл I роду</div>
@@ -476,9 +512,17 @@
                     ... - це інтеграл Лебега у просторі $(L,\ \mathfrak{A}_L,\ |\bullet|_L)$ від скалярної функції $f$, до області визначення якої входить крива $L$, вздовж цієї ж кривої $L$.<br>
                     <br>
                     Позначається як $\int_L f\ dl$.<br>
-                    Обчислюється за формулою:<br>
+                    <br>
+                    <b>Обчислюється за формулою:</b>
                     $$\int_L f\ dl = \int_a^b f(g(t)) \sqrt{{{x}'}^2(t) + {{y}'}^2(t) + {{z}'}^2(t)}\ dt$$
-                    де $g(t)=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix}$, $t \in [a,b]$, $g([a,b]) = L$ і $g(t)$ - бієктивна, неперервна та неперервно-диференційована функція.
+                    де $g(t)=\begin{pmatrix}x(t)\\y(t)\\z(t)\end{pmatrix}$, $t \in [a,b]$, $g([a,b]) = L$ і $g(t)$ - бієктивна, неперервна та неперервно-диференційована функція.<br>
+                    <br>
+                    <b>На площині:</b>
+                    $$\int_a^b f(g(t)) \sqrt{{x}'^2(t) + {y}'^2(t)}\ dt$$
+                    <b>В явному вигляді:</b>
+                    $$\int_a^b f(x, y(x))\sqrt{1+ {y}'^2(x)}\ dx$$
+                    <b>В полярних координатах:</b>
+                    $$\int_\alpha^\beta f(\rho(\varphi)\cos{\varphi}, \rho(\varphi)\sin{\varphi})\sqrt{\rho^2(\varphi) + {\rho}'^2(\varphi)}\ d\varphi$$
                 </div>
                 <div>11.1 Чертов с.14</div>
             </div>
@@ -491,27 +535,45 @@
                     Також має такі властивості:<br>
                     1) довжина кривої $L$ рахується як одиничний інтеграл по цій прямій: $|L| = \int_L dl$<br>
                     2) значення інтегралу не залежить від орієнтації кривої: $\int_{AB} f\ dl = \int_{BA} f\ dl$
-
+                    <b>ДУЖЕ ВАЖЛИВО:</b><br>
+                    При збільшенні параметра повинна збільшуватися довжина кривої!
                 </div>
                 <div>Чертов с.16</div>
             </div>
             <div class="potential">
-                <div>WIP Криволінійний інтеграл II роду</div>
+                <div>Криволінійний інтеграл II роду</div>
                 <div>
                     ... - це інтеграл Лебега у просторі, де визначена прямокутна система координат $(x,\ y,\ z)$, від векторної функції, до області визначення якої входить крива $L$, вздовж цієї ж кривої $L$:
                     $$\overline{a} = P(x,y,z)\overline{i} + Q(x,y,z)\overline{j} + R(x,y,z)\overline{k}$$
                     $$\int_L (\overline{a}, \overline{dt}) = \int_L (Pdx + Qdy + Rdz) = \int_L (\overline{a}, \overline{\tau})\ dt$$
                     $$\overline{dt} = \tau dt$$
                     $$\tau = \frac{d\overline{a}}{dt}$$
+                    <b>Обчислюється також через криволінійний інтеграл I роду:</b>
+                    $$\int_L (\overline{a}, \overline{dl}) = \int_L (P\cos{\tau, x} + Q\cos{\tau, y} + R\cos{\tau, z})\ dl$$
                 </div>
                 <div>11.2 Нікольський с.77</div>
             </div>
             <div class="potential">
-                <div>Циркуляція</div>
+                <div>Циркуляція вектора $\overline{a}$ по кривій $L$</div>
                 <div>
-                    Якщо орієнтований (такий, що має напрям) контур кривої $L$ є замкнутим, то взятий вздовж неї криволінійний інтеграл II роду від векторної функції $\overline{a}$ називається циркуліцією вектора $\overline{a}$ по кривій $L$.
+                    ... - це криволінійний інтеграл II роду по замкнутому і орієнтованому (такий, що має напрям) контуру $L$ від векторної функції $\overline{a}$.
                 </div>
                 <div>Нікольський с.78</div>
+            </div>
+            <div class="potential">
+                <div>Робота векторного поля</div>
+                <div>
+                    Якщо вектор $\overline{a}$ - це поле якоїсь сили, то інтеграл від цього вектора - це робота вздовж шляху інтегрування.
+                </div>
+                <div></div>
+            </div>
+            <div class="potential">
+                <div>Поле вектора $\overline{a}$</div>
+                <div>
+                    Якщо вектор $\overline{a}$ визначає у просторі $R^3$ якусь функцію, то інколи говорять, що він визначає в просторі певне $поле$.<br>
+                    Така термінологія підкреслює, що значення функції залежать саме від точок простору, в якому функція визначена, а не від координат цих точок в якійсь системі координат.
+                </div>
+                <div></div>
             </div>
             <div class="theorem">
                 <div>Властивості криволінійного інтегралу II роду</div>
@@ -546,9 +608,28 @@
                 <div>Нікольський с.79</div>
             </div>
             <div class="potential theorem">
-                <div>WIP Неперервне поле потенціалу (умова незалежності криволінійного інтегралу II роду від шляху інтегрування)</div>
+                <div>Неперервне поле потенціалу (умова незалежності криволінійного інтегралу II роду від шляху інтегрування)</div>
                 <div>
-                    
+                    Нехай на області $G \subset E$ задано поле вектора $\overline{a}$ неперервного на $G$. Тоді наступні твердження еквівалентні:<br>
+                    1) Існує на $G$ однозначна функція $U = U(x, y, z)$, має неперервні частинні похідні, для яких на $G$ виконується рівність
+                    $$\operatorname U = \overline{a}$$
+                    Тобто вираз $Pdx + Qdy + Rdz$ є повним диференціалом якоїсь функції $u(x,y,z)$<br>
+                    <br>
+                    2) Інтеграл від $\overline{a}$ по будь-якому замкнутому неперервному кускового-гладкому контуру $C$, що належить до $G$, дорівнює нулю.<br>
+                    Тобто поле $\overline{a}$ є потенціальним.
+                    3) Якщо $A_0$ - визначена фіксована точка $G$, то інтеграл $\int_{C_{A_0A}} (\overline{a}, \overline{ds})$ по будь-якій орієнтованій кусково-гладкій кривій $C_{A_0A} \subset G$ з початком в $A_0$ і з кінцем в $A$ залежить від $A_0$ і $A$, але не залежить від її форми. Таким чином, при фіксованій точці $A_0$
+                    $$\int_{C_{A_0A}} (\overline{a}, \overline{ds}) = V(A) = V(x, y, z)$$
+                    <b>Доведення:</b><br>
+                    Спочатку доводиться еквівалентність 1-го і 3-го твердження:<br>
+                    1) Визначимо шлях через точки $A_0$, $A_2$, $A$, $A_1$. (Відрізок $A_2$-$A$ паралельний до одніє з осей)<br>
+                    2) Розпишемо нашу функція як:
+                    $$V(x, y_1, z_1) = \int_{C_1} (Pdx + Qdy + Rdz) + \int_{{C}'} Pdx$$
+                    Взявши похідну по $dx$ отримаємо шуканий результат.<br>
+                    <br>
+                    3) Таким чином:
+                    $$V(x, y, z) = K + \int_{x_2}^{x_1} P(t, y, z)\ dt$$
+                    Потім доводиться еквівалентність 2-го і 3-го твердження:
+                    $$0 = \int_{{C}'} + \underline{\int_{{C}''}} = \int_{{C}''} - \int_{{C}'} = \int_C$$
                 </div>
                 <div>11.3 Нікольський с.79</div>
             </div>
@@ -563,6 +644,7 @@
             <div class="potential">
                 <div>Ротор (вихор) векторного поля</div>
                 <div>
+                    !Важливо щоб вектор $\overline{a}$ мав неперервні частинні похідні!<br>
                     ... - це векторний добуток оператора Гамільтона (набла) на векторне поле:
                     $$\overline{a} = P(x,y,z)\overline{i} + Q(x,y,z)\overline{j} + R(x,y,z)\overline{k}$$
                     $$\overline{\nabla} = \frac{\delta}{\delta x}\overline{i} + \frac{\delta}{\delta y}\overline{j} + \frac{\delta}{\delta z}\overline{k}$$
@@ -579,21 +661,31 @@
                 <div>Чертов с.20</div>
             </div>
             <div class="potential theorem">
-                <div>WIP Неперервно-диференційовне поле потенціалу (умова незалежності криволінійного інтегралу II роду від шляху інтегрування)</div>
+                <div>Неперервно-диференційовне поле потенціалу (умова незалежності криволінійного інтегралу II роду від шляху інтегрування)</div>
                 <div>
-                    
+                    Умова та ж, що й в Т про неперервне поле потенціалу.<br>
+                    <br>
+                    <b>Доведення:</b><br>
+                    Спочатку доводимо, що якщо градієнт функції дорівнює $a$, то ротор по $a$ дорівнює нулю:
+                    $$\operatorname{grad} U = a \implies \operatorname{rot} a = 0$$
+                    Потім доведемо обернене, що якщо ротор по $a$ дорівнює нулю, то градієнт функції дорівнює $a$:
+                    $$\operatorname{rot} a = 0 \implies \operatorname{grad} U = a$$
                 </div>
                 <div>11.4 Нікольський с.82</div>
             </div>
             <div class="potential">
                 <div>Орієнтация плоскої області - напрям обходу фігури</div>
                 <div>
-                    <b>Додатній напрям обходу</b> - це напрям при якому при руху по кусково-гладкій границі, що може складатися із кінцевого числа замкнутих, самонеперетинаючихся контурів, область обходу залишається <b>зліва</b>, а при <b>від'ємному</b> напряму обходу - <b>зправа</b> для <b>провосторонньої</b> прямокутної системи координат і навпаки для <b>лівосторонньої</b>.
+                    <b>Просто:</b><br>
+                    <b>Додатній напрям обходу</b>- це напрям проти часової стрілки, коли фігура знаходиться <b>зліва</b> від нас, а <b>від'ємний</b> - по часовій, коли фігура <b>зправа</b> від нас в <b>правосторонній системі координат</b>, і навпаки для <b>лівосторонньої</b>.<br>
+                    <br>
+                    <b>Складно:</b><br>
+                    <b>Додатній напрям обходу</b> - це напрям при якому при руху по кусково-гладкій границі, що може складатися із кінцевого числа замкнутих, самонеперетинаючихся контурів, область обходу залишається <b>зліва</b>, а при <b>від'ємному</b> напряму обходу - <b>зправа</b> для <b>провосторонньої прямокутної системи координат</b> і навпаки для <b>лівосторонньої</b>.
                 </div>
                 <div>11.5 Нікольський с.86</div>
             </div>
             <div class="formula">
-                <div>WIP Перша формула Гріна - площа фігури через криволінійний інтеграл</div>
+                <div>Перша формула Гріна - площа фігури через криволінійний інтеграл II роду</div>
                 <div>
                     Для пласких областей $\Omega$ з додатньо орієнтованою границею $L$ виконується:
                     $$\iint_\Omega \left( \frac{\delta Q}{\delta x} - \frac{\delta P}{\delta y} \right)\ dx dy = \int_L (Pdx + Qdy)$$
@@ -601,13 +693,64 @@
                     <br>
                     Для того, щоб знайти площу області $\Omega$ треба підставити $P = -y$, $Q = x$ у формулу Гріна:
                     $$S = \iint_\Omega dxdy = \frac{1}{2} \oint xdy - ydx$$
+                    <b>Доведення для прямокутника:</b></br>
+                    Спочатку доведемо для $\delta Q$ по $\delta x$:
+                    $$\iint_\nabla \frac{\delta Q}{\delta x}\ dxdy = \int_c^d \int_a^b \frac{\delta Q}{\delta x}\ dxdy =$$
+                    $$ = \int_c^d (Q(b, y) - Q(a, y))\ dy = $$
+                    $$ = (\int_{L_{BC}} + \int_{L_{DA}}) Q(x,y)\ dy = \int_L Q(x, y)\ dy$$
+                    Аналогічно для $\delta P$ по $\delta y$.<br>
+                    <br>
+                    <b>Доведення для елементарної фігури:</b><br>
+                    Суть в тому, що площу фігуру можна знайти як загальну площу сукупності елементарних фігур, що містяться в початковій. Для цього достатньо вміти знаходити площу криволінійної трапеції.
+                    Трапеція по $x$ від $a$ до $b$, а по y від $c$ до $d$!
+                    $$\iint_\omega \frac{\delta Q}{\delta x}\ dxdy = \int_c^d \left| Q(b, y) - Q(\mu(y), y) \right|\ dy = $$
+                    $$ = (\int_{L_{BC}} + \int_{L_{DA}}) Q(x,y)\ dy = \int_L Q(x, y)\ dy$$
+                    Аналогічно для $\delta P$ по $\delta y$.
                 </div>
                 <div>11.5 Нікольський с.87</div>
             </div>
             <div class="potential formula">
-                <div>WIP Друга формула Гріна</div>
+                <div>Друга формула Гріна - площа фігури через криволінійний інтеграл I роду</div>
                 <div>
-                    
+                    $$\oint_L
+                    \left| \begin{matrix}
+                    u & v \\
+                    \frac{\delta u}{\delta n} & \frac{\delta v}{\delta n} 
+                    \end{matrix} \right|
+                    \ dl
+                    =
+                    \iint_G
+                    \left| \begin{matrix}
+                    u & v \\
+                    \Delta u & \Delta v 
+                    \end{matrix} \right|
+                    \ dxdy
+                    $$
+                    $\Delta u = \frac{\delta u}{\delta n}$ - похідна по напрямку нормалі!<br>
+                    <br>
+                    <b>Доведення:</b><br>
+                    Спочатку доведемо, що:
+                    $$\oint_L v\ \frac{\delta u}{\delta n}\ dl = \iint (v\Delta u + \frac{\delta v}{\delta x} \cdot \frac{\delta u}{\delta x} + \frac{\delta v}{\delta y} \cdot \frac{\delta u}{\delta y})\ dxdy$$
+                    1) Нехай одиничний вектор нормалі $\overline{n} = (\cos{\varphi}, \sin{\varphi})$.<br>
+                    2) Формула по напряму вектора нормалі:
+                    $$\frac{\delta u}{\delta n} = \frac{\delta u}{\delta x}\cos{\varphi} + \frac{
+                    \delta u}{\delta y}\sin{\varphi}$$
+                    3) Виразимо криволінійний інтеграл I-го роду через криволінійний інтеграл II-го роду:
+                    $$\oint_L v \frac{\delta u}{\delta n}\ dl = \oint_L (v\frac{\delta u}{\delta x}\cos{\varphi} + v\frac{
+                    \delta u}{\delta y}\sin{\varphi})\ dl = $$
+                    $$ = \oint_L (-v\frac{\delta u}{\delta y})dx + (v\frac{\delta u}{\delta x})dy$$
+                    4) Введемо означення для $P$ і $Q$ та зведемо до першої формули Гріна:
+                    $$P = -v\frac{\delta u}{\delta y}$$
+                    $$\frac{\delta P}{\delta y} = \frac{\delta}{\delta y}(-v\frac{\delta u}{\delta y}) = -v\frac{\delta^2 u}{\delta y^2} + \frac{\delta v}{\delta y} \cdot \frac{\delta u}{\delta y}$$
+                    $$Q = v\frac{\delta u}{\delta x}$$
+                    $$\frac{\delta Q}{\delta x} = \frac{\delta}{\delta x}(v\frac{\delta u}{\delta x}) = v\frac{\delta^2 u}{\delta x^2} + \frac{\delta v}{\delta x} \cdot \frac{\delta u}{\delta x}$$
+                    5) Отримаємо:
+                    $$\oint_L (-v\frac{\delta u}{\delta y})dx + (v\frac{\delta u}{\delta x})dy = \iint_G (\frac{\delta Q}{\delta x} - \frac{\delta P}{\delta y})\ dxdy = $$
+                    $$ = \iint (v\Delta u + \frac{\delta v}{\delta x} \cdot \frac{\delta u}{\delta x} + \frac{\delta v}{\delta y} \cdot \frac{\delta u}{\delta y})\ dxdy$$
+                    Доведемо аналогічно і для $u \Delta v$:
+                    $$\oint_L u\ \frac{\delta v}{\delta n}\ dl = \iint (u\Delta v + \frac{\delta u}{\delta x} \cdot \frac{\delta v}{\delta x} + \frac{\delta u}{\delta y} \cdot \frac{\delta v}{\delta y})\ dxdy$$
+                    Віднявши отримані вирази отримуємо 2-гу формулу Гріна:
+                    $$\oint_L (u\ \frac{\delta v}{\delta n} - v\frac{\delta u}{\delta n})\ dl = \iint_G (u\Delta v -  v\Delta u)\ dxdy$$
                 </div>
                 <div>11.6 Чертов с.22</div>
             </div>
