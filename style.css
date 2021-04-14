@@ -94,6 +94,10 @@ body {
     border: none;
 }
 
+#search-field:focus {
+    outline: none;
+}
+
 #erase-icon {
     width: 24px;
     padding-right: 5px;
