@@ -24,6 +24,18 @@
               }
             };
         </script>
+        <!-- Latex Reminder
+            \! 	-3/18 of \quad (= -3 mu)
+            \, 	 3/18 of \quad (= 3 mu)
+            \: 	 4/18 of \quad (= 4 mu)
+            \; 	 5/18 of \quad (= 5 mu)
+            \ (space after backslash!) 	equivalent of space in normal text
+            \quad 	space equal to the current font size (= 18 mu)
+            \qquad 	twice of \quad (= 36 mu)
+
+            \mathbb{N}
+            \implies
+        -->
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
@@ -37,20 +49,210 @@
         <div id="results"></div>
         <div id='question-list' hidden="">
             <div>
-                <div>Question</div>
+                <div>Комплексне число</div>
                 <div>
-                    Some text here and math:
-                    $$I = \{x \in R^n\ |\ a^i \le x^i \le b^i,\ i = 1, ..., n \}$$
+                    Комплéксним числом називається упорядкована пара $(x, y)$ дійсних чисел, для якої наступним чином визначені рівність, арифметичні дії та нерівність:<br>
+                    1) $(x, y) = (x_1, y_1) \iff (x = x_1)\, \& \, (y=y_1)$<br>
+                    2) $(x, y) + (x_1, y_1) \equiv (x+x_1, y+y_1) \quad (x, y)(x_1, y_1) \equiv (xx_1-yy_1, xy_1+x_1y)$<br>
+                    3) $(x,0) \leq (x_1,0) \iff (x \leq x_1)$.
                 </div>
-                <div>Source</div>
+                <div>Чертов с.3</div>
             </div>
-            <div class="potential">
-                <div>Potential question</div>
+            <div>
+                <div>Алгебраїчна форма комплексного числа</div>
                 <div>
-                    Some text here and math:
-                    $$I = \{x \in R^n\ |\ a^i \le x^i \le b^i,\ i = 1, ..., n \}$$
+                    $$z = x + iy$$
                 </div>
-                <div>Source</div>
+                <div>Чертов с.4</div>
+            </div>
+            <div>
+                <div>Афікс комплексного числа</div>
+                <div>
+                    Точка на площини з декартовими координатами $(x, y)$ цього числа.
+                </div>
+                <div>Чертов с.6</div>
+            </div>
+            <div>
+                <div>Тригонометрична форма комплексного числа</div>
+                <div>
+                    $$z = \rho (\cos\varphi + i \sin \varphi)$$
+                    Це випливає з:
+                    $$ z = x + iy = $$
+                    $$ = \sqrt{x^2 + y^2} \left( \cos \left(\arctan \frac{y}{x} + 2 \pi k\right) + i \sin \left( \arctan \frac{y}{x} + 2 \pi k \right)\right) \text{, де } k \in \mathbb{Z} $$
+                    Ну і власне перехід:
+                    $$ x = \rho \cos \varphi $$
+                    $$ y = \rho \sin \varphi $$
+                    Або в іншу сторону:
+                    $$ \rho = \sqrt{x^2 + y^2},\ \varphi = \arctan \frac{y}{x} $$
+                </div>
+                <div>Чертов с. 6</div>
+            </div>
+            <div>
+                <div>Модуль або абсолютна величина комплексного числа</div>
+                <div>
+                    $$ |z| = \varphi = \sqrt{x^2 + y^2} $$
+                </div>
+                <div>Чертов с.7</div>
+            </div>
+            <div class="theorem">
+                <div>1-1 Модуль комплексного числа має наступні властивості</div>
+                <div>
+                    а) $|(x,0)| = |x|$ <br>
+                    б) $||z|| = |z|$ <br>
+                    в) $|z|>0$, якщо $z≠(0,0)$ і $|z|=0$, якщо $z=(0,0)$ <br>
+                    г) $z \cdot z = |z|^2$ <br>
+                    д) $|z \cdot z_1| = |z| \cdot |z_1|$ <br>
+                    е) $\left| \frac{z}{z_1} \right| = \frac{|z|}{|z_1|}$, якщо $z_1≠(0,0)$ <br>
+                    ж) Нерівність трикутника:
+                        $$ ||z_1|-|z_2||≤ |z_1+ z_2|≤ |z_1|+|z_2| $$
+                    з) Нерівність Коші:
+                        $$ \left| \sum_{i=1}^n a_i b_i \right|^2 \leq \sum_{i=1}^n \left| a_i \right|^2 \ \sum_{i=1}^n \left|b_i\right|^2 \text{, де } a_1, a_2, \dots, a_n, b_1, b_2, \dots, b_n \in \mathbb{C} $$ <br>
+                    <b>Доведення:</b><br>
+                    а) $ |(x, 0)| = \sqrt{x^2 + 0^2} = \sqrt{x^2} = |x| $ <br>
+                    б) $ \left\| z \right\| = \left\| x + iy \right\| = \left| \sqrt{x^2+y^2} \right| = \sqrt{x^2+y^2} = |z|$ <br>
+                    в) Очевидно. <br>
+                    г) Доведено раніше під час введення спряженого комплексного числа <br>
+                    д) $$ |z \cdot z_1 | = \left| (x+iy)(x_1+iy_1) \right| = $$
+                    $$ = \left|(xx_1-yy_1) + (xy_1+yx_1)i \right| = \sqrt{(xx_1-yy_1)^2 + (xy_1+yx_1)^2} = $$
+                    $$ = \sqrt{(x^2 + y^2)(x_1^2 + y_1^2)} = \sqrt{|z|^2|z_1|^2} = |z|\cdot |z_1|$$
+                    е) $$ \left| \frac{z}{z_1} \right| = \left| \frac{x+iy}{x_1 + iy_1} \right| = \left| \frac{xx_1+yy_1}{x_1^2+y_1^2} + i\frac{yx_1-xy_1}{x_1^2 + y_1^2} \right| = $$
+                    $$ \frac{\sqrt{(xx_1+yy_1)^2 + (yx_1-xy_1)^2}}{|z_1|^2} = \frac{\sqrt{x^2(x_1^2+y_1^2) + y^2(x_1^2 - y_1^2)}}{|z_1|^2} = \frac{|z|}{|z_1|^2}$$
+                    <!-- ж -->
+                    <img src="images/Screenshot_3.png">
+                    <img src="images/Screenshot_4.png">
+                    <!-- з -->
+                    <img src="images/Screenshot_5.png">
+                    <img src="images/Screenshot_6.png">
+                </div>
+                <div>Чертов с.7</div>
+            </div>
+            <div class="theorem">
+                <div>1-2 Аргумент комплексного числа має наступні
+                властивості</div>
+                <div>
+                    <img src="images/Screenshot_7.png">
+                    <img src="images/Screenshot_8.png">
+                </div>
+                <div>Чертов с.10</div>
+            </div>
+            <div class="formula">
+                <div>Формула Муавра. Корень із комплексного числа</div>
+                <div>
+                    <img src="images/Screenshot_1.png">
+                </div>
+                <div>Чертов с.11</div>
+            </div>
+            <div class="theorem">
+                <div>Основна теорема алгебри</div>
+                <div>
+                    <img src="images/Screenshot_9.png">
+                </div>
+                <div>Чертов с.12</div>
+            </div>
+            <div class="">
+                <div>Послідовність комплексних чисел</div>
+                <div>
+                    ... - це перенумерована нескінченна множина комплексних чисел. Позначають як ${z_n}$.
+                </div>
+                <div>Чертов с.19 Свешников с.19</div>
+            </div>
+            <div class="">
+                <div>Границя послідовності</div>
+                <div>
+                    Число $z$ називається границею послідовності ${z_n}$, якщо для будь якого додатнього числа $\varepsilon$ можна вказати такий номер $N(\varepsilon)$, починаючи з якого всі елементи $z_n$ цієї послідовності задовільняють нерівність:
+                    $$ \forall \varepsilon > 0 \quad \exists N \in \mathbb{N} \quad \forall n \geq N \quad (|z_n-z| < \varepsilon) $$
+                </div>
+                <div>Чертов с.19 Свешников с.19</div>
+            </div>
+            <div class="">
+                <div>Збіжна послідовність</div>
+                <div>
+                    Послідовність ${z_n}$, що має границю $z$, називається збіжною до $z$, що записується у вигляді:
+                    $$ \lim_{n \to \infty} z_n = z $$
+                </div>
+                <div>Чертов с.19 Свешников с.19</div>
+            </div>
+            <div class="">
+                <div>Епсілон окіл точки</div>
+                <div>
+                    ... - множина точок $z$ комплексної площини, що лежить всередині окружності радіусом $\varepsilon$ з центром в точці $z_0$, при $|z-z_0| < \varepsilon$.
+                </div>
+                <div>Чертов с.20 Свешников с.20</div>
+            </div>
+            <div class="theorem">
+                <div>3-1 1.1 Необхідна і достатня умова збіжності послідовності</div>
+                <div>
+                    Необхідною і достатньою умовою збіжності послідовності ${z_n}$ є збіжність послідовностей дійсних чисел ${a_n}$ і ${b_n}$, при $z_n = a_n + b_n$.<br>
+                    <br>
+                    <b>Доведення:</b><br>
+                    Якщо послідовність ${z_n}$ збігається до числа $z = a + ib$, то для будь-якого $\varepsilon > 0$ $|a_n - a| \leq |z-n| < \varepsilon \ $ і $\ |b_n - b| < \varepsilon \ $ при $\ n \geq N(\varepsilon)$. Це і доводить збіжність послідовностей ${a_n}$ та ${b_n}$ до $a$ та $b$ відповідно.<br>
+                    Обернене твердження випливає з відношення $|z_n - z| = \sqrt{(a_n - a)^2 + (b_n-b)^2}$, де $a$ і $b$ є границями послідовностей $a_n$ і $b_n$ та $z = a + ib$.
+                </div>
+                <div>Чертов с.20 Свешников с.20</div>
+            </div>
+            <div class="theorem">
+                <div>3-2 1.2 Із всякої збіжної послідовності можна виокремити збіжну підпослідовність</div>
+                <div>
+                    <b>Доведення:</b><br>
+                    ${z_n}$ обмежена $\implies$ відповідні їй дійсні послідовності ${a_n}$ і ${b_n}$ обмежені.<br>
+                    ${a_n}$ обмежена $\implies$ із неї можна виокремити збіжну підпослідовність ${a_{n_i}}$ границю якої позначимо за $a$.<br>
+                    ${a_{n_i}}$ відповідає послідовність ${b_{n_i}}$, що також є обмеженою $\implies$ з неї також можна виокремити збіжну підпослідовність ${b_{n_{i_k}}}$, границю якої позначимо за $b$.<br>
+                    При цьому відповідна послідовність ${a_{n_{i_k}}}$ все ще збігається до $a$ $\implies$ послідовність комплексних чисел ${z_{n_{i_k}}} = {a_{n_{i_k}} + ib_{n_{i_k}}}$ також є збіжною, причому $\lim_{n_{i_k} \to \infty} z_{n_{i_k}} = z = a + ib$ $_\blacksquare$.
+                </div>
+                <div>Чертов с.20 Свешников с.20</div>
+            </div>
+            <div class="theorem">
+                <div>Критерій збіжності Коші</div>
+                <div>
+                    Послідовність ${z_n}$ збіжна тоді і тільки, коли
+                    $$ \forall \varepsilon > 0 \quad \exists N \in \mathbb{N} \quad \forall n \geq N \quad \forall m \in \mathbb{N} \quad |z_{n+m} - z_n| < \varepsilon $$
+                    <b>Доведення:</b><br>
+                    Для доведення критерія Коші використаємо еквівалентність збіжності послідовності ${z_n}$ і послідовностей дійсних чисел ${a_n}$ і ${b_n}$, а також тиєю обставиною, що критерій Коші є необхідною і достатньою ознакою збіжності послідовностей дійсних чисел.<br>
+                    <br>
+                    <b>Необхідність</b><br>
+                    ${z_n}$ збіжна $\implies$ збіжні ${a_n}$ і ${b_n}$ $\implies$<br>
+                    $\forall \varepsilon > 0 \quad \forall m > 0$
+                    $$ |a_n - a_{n+m}| < \frac{\varepsilon}{2} \text{, при } n \geq N_1(\varepsilon)$$
+                    $$ |b_n - b_{n+m}| < \frac{\varepsilon}{2} \text{, при } n \geq N_2(\varepsilon)$$
+                    Взявши за $N(\varepsilon)$ більше з $N_1$ $N_2$ з нерівності трикутника отримуємо при $n > N(\varepsilon)$:
+                    $$ |z_n - z_{n+m}| \leq |a_n - a_{n+m}| + |b_n - b_{n+m}| $$
+                    <br>
+                    <b>Достатність</b><br>
+                    Із відношення з умови теореми при $n \geq N$ випливають нерівності
+                    $$ |a_n - a_{n+m}| \leq |z_n - z_{n+m}| < \varepsilon $$
+                    $$ |b_n - b_{n+m}| \leq |z_n - z_{n+m}| < \varepsilon $$
+                    що і є достатньою умовою збіжності послідовностей ${a_n}$ та ${b_n}$, тобто збіжності ${z_n}$ $_\blacksquare$.
+                </div>
+                <div>Чертов с.21 Свешников с.21</div>
+            </div>
+            <div class="">
+                <div>Нескінченно зростаюча послідовність</div>
+                <div>
+                    ... - це послідовність комплексних чисел ${z_n}$ така, що
+                    $$\forall \varepsilon > 0 \quad \exists N \in \mathbb{N} \quad \forall n \geq N \quad |z_n| > \varepsilon $$
+                </div>
+                <div>Чертов с.21 Свешников с.21</div>
+            </div>
+            <div class="">
+                <div>Нескінченно віддалена точка</div>
+                <div>
+                    ... - точка до якої збігається нескінченно зростаюча послідовність.
+                </div>
+                <div>Чертов с.22 Свешников с.22</div>
+            </div>
+            <div class="">
+                <div>Повна комплексна площина</div>
+                <div>
+                    ... - це сукупність звичайної комплексної площини та нескінченно віддаленої точки.
+                </div>
+                <div>Чертов с.22 Свешников с.22</div>
+            </div>
+            <div class="">
+                <div>Template</div>
+                <div>
+                    Text
+                </div>
+                <div>Чертов с.</div>
             </div>
         </div>
     </body>
