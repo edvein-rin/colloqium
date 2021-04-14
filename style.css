@@ -28,7 +28,7 @@ html, body {
     */
 
     --lighter: #fff9f1;
-    --light: #eadd46;
+    --light: #43a0b1;
     --dark: #596a71;
     --darker: #0a2b42;
 
@@ -39,7 +39,6 @@ html, body {
     line-height: 1.5em;
 
     cursor: default;
-    user-select: none;
 }
 
 input {
@@ -101,6 +100,7 @@ body {
 #erase-icon {
     width: 24px;
     padding-right: 5px;
+    user-select: none;
 }
 
 #erase-icon:hover, #filter-icon:hover {
@@ -122,10 +122,12 @@ body {
     border: 2px solid;
 
     background: white;
+    user-select: none;
 }
 
 #filter-icon {
     font-size: 16px;
+    user-select: none;
 }
 
 #results {
@@ -203,6 +205,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-shrink: 0;
 
     padding: 8px;
@@ -232,4 +235,9 @@ body {
 
     transition-property: opacity, height;
     transition-duration: .2s;
+}
+
+.result-answer img {
+    width: 85%;
+    margin: 0 calc(15%/2);
 }
