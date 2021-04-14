@@ -1,8 +1,17 @@
+const DEBUG = true;
+
 var questions = [];
 var filter = 'all'; // [all|theorems|formulas]
 var timeUntilSearchResultsAreUpdated = 200; // ms
 var wasNewSearchRequest = false;
 var searchTimeout = null;
+
+window.addEventListener('load', (e) => {
+    if (DEBUG) {
+        document.getElementById('search-field').value = 'all';
+        updateResults();
+    }
+})
 
 function loadQuestions(){
     let questionList = document.getElementById('question-list');
