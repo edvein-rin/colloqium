@@ -10,6 +10,13 @@ window.addEventListener('load', (e) => {
     if (DEBUG) {
         document.getElementById('search-field').value = 'all';
         updateResults();
+
+        const results = document.querySelectorAll('.result')
+        results.forEach(result => {
+            showAnswer(result)
+        });
+
+        setTimeout(() => {window.scrollTo(0, document.body.scrollHeight)}, timeUntilSearchResultsAreUpdated)
     }
 })
 
@@ -42,24 +49,24 @@ function loadQuestions(){
 
 }
 
-function invertAnswerDisplay(question){
-    let answer = question.children[question.children.length - 1];
+function invertAnswerDisplay(result){
+    let answer = result.children[result.children.length - 1];
     if(answer.style.opacity == 0){
-        showAnswer(question)
+        showAnswer(result)
     }else{
-        hideAnswer(question)
+        hideAnswer(result)
     }
 }
 
-function showAnswer(question){
-    let answer = question.children[question.children.length - 1];
+function showAnswer(result){
+    let answer = result.children[result.children.length - 1];
     answer.style.height = answer.scrollHeight.toString() + 'px';
     answer.style.opacity = 1;
     answer.style.padding = '8px';
 }
 
-function hideAnswer(question){
-    let answer = question.children[question.children.length - 1];
+function hideAnswer(result){
+    let answer = result.children[result.children.length - 1];
     answer.style.height = 0;
     answer.style.opacity = 0;
     setTimeout( () => {answer.style.padding = 0;}, 200);
