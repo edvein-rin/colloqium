@@ -238,6 +238,6 @@ body {
 }
 
 .result-answer img {
-    width: 85%;
-    margin: 0 calc(15%/2);
+    width: 75%;
+    margin: 0 calc(25%/2);
 }
