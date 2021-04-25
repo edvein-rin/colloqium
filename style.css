@@ -34,7 +34,7 @@ html, body {
 
 
     color: var(--darker);
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', Arial, sans-serif;
     background: var(--lighter);
     line-height: 1.5em;
 

@@ -11,12 +11,20 @@ window.addEventListener('load', (e) => {
         document.getElementById('search-field').value = 'all';
         updateResults();
 
+        function scrollToBottom() {
+            window.scrollTo(0, document.body.scrollHeight)
+        }
+
         const results = document.querySelectorAll('.result')
         results.forEach(result => {
-            showAnswer(result)
+            const isTheLastResult = Array.prototype.indexOf.call(results, result) === results.length - 1
+            setTimeout(() => {
+                showAnswer(result)
+                if (isTheLastResult) {
+                    setTimeout(() => {scrollToBottom()}, timeUntilSearchResultsAreUpdated + 1)
+                }
+            }, timeUntilSearchResultsAreUpdated)
         });
-
-        setTimeout(() => {window.scrollTo(0, document.body.scrollHeight)}, timeUntilSearchResultsAreUpdated)
     }
 })
 
