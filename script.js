@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG = false;
 
 var questions = [];
 var filter = 'all'; // [all|theorems|formulas]
